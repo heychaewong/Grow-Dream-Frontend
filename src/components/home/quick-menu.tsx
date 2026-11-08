@@ -24,9 +24,9 @@ export function QuickMenu({ items }: { items: QuickMenuItem[] }) {
           accessibilityRole="button"
           style={({ pressed }) => [styles.item, pressed && { opacity: 0.6 }]}>
           <View style={styles.iconBox}>
-            <Ionicons name={item.icon} size={38} color={item.iconColor} />
+            <Ionicons name={item.icon} size={40} color={item.iconColor} />
           </View>
-          <AppText size="small" weight="medium" style={styles.label}>
+          <AppText size="body" weight="semibold" style={styles.label}>
             {item.label}
           </AppText>
         </Pressable>
@@ -44,11 +44,11 @@ const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
     gap: 8,
-    width: 84,
+    width: 90,
   },
   iconBox: {
-    width: 67,
-    height: 67,
+    width: 72,
+    height: 72,
     borderRadius: Radius.md,
     borderWidth: 2,
     borderColor: Colors.primary,

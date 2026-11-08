@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -20,12 +21,14 @@ const QUICK_MENU: QuickMenuItem[] = [
 const comingSoon = (title: string) => router.push({ pathname: '/coming-soon', params: { title } });
 
 export default function HomeScreen() {
+  const [todayAnswer, setTodayAnswer] = useState('');
+
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <HomeHeader />
 
-      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-        <TodayQuestionBanner {...todayQuestion} onPressAnswer={() => comingSoon('오늘의 질문')} />
+      <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+        <TodayQuestionBanner {...todayQuestion} answer={todayAnswer} onSubmitAnswer={setTodayAnswer} />
 
         <View style={styles.menu}>
           <QuickMenu items={QUICK_MENU} />

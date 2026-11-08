@@ -14,15 +14,15 @@ export function HomeHeader() {
         <View style={styles.logo}>
           <MaterialCommunityIcons name="sprout" size={26} color={Colors.primary} />
         </View>
-        <AppText size="headline" weight="extrabold" color={Colors.primary}>
+        <AppText size="display" weight="extrabold" color={Colors.primary}>
           키워드림
         </AppText>
       </View>
 
       <View style={styles.actions}>
         <CoinBadge />
-        <Ionicons name="search-outline" size={26} color={Colors.text} accessibilityLabel="검색" />
-        <Ionicons name="notifications-outline" size={26} color={Colors.text} accessibilityLabel="알림" />
+        <Ionicons name="search-outline" size={28} color={Colors.text} accessibilityLabel="검색" />
+        <Ionicons name="notifications-outline" size={28} color={Colors.text} accessibilityLabel="알림" />
       </View>
     </View>
   );
