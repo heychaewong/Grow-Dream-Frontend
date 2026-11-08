@@ -47,6 +47,12 @@ export const Colors = {
   bronze: '#D9822B',
   orange: '#F7B54A',
 
+  // 펀딩 / 키워드림톡
+  heroGray: '#4A564B',
+  mustard: '#E8C33A',
+  talkCream: '#FFF8DE',
+  talkBand: '#F3E8C2',
+
   dim: 'rgba(0, 0, 0, 0.35)',
 } as const;
 

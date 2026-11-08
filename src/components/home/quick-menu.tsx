@@ -7,7 +7,7 @@ import { Colors, Radius } from '@/constants/theme';
 
 export type QuickMenuItem = {
   label: string;
-  /** TODO: Figma 일러스트 이미지로 교체 */
+  /** Figma 일러스트 대신 쓰는 오픈소스 아이콘 (저작권 문제 회피) */
   icon: keyof typeof Ionicons.glyphMap;
   iconColor: string;
   href: Href;

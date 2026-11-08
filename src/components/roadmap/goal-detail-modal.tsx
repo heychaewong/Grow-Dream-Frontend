@@ -39,7 +39,7 @@ export function GoalDetailModal({ goal, index, onClose, onToggleDone, onRecommen
               </Pressable>
             </View>
 
-            {/* TODO: 목표별 대표 이미지 (Figma의 캠퍼스 사진 자리) */}
+            {/* Figma의 캠퍼스 사진 자리. 출처를 알 수 없는 사진이라 임시 그림으로 둬요. */}
             <View style={styles.image}>
               <MaterialCommunityIcons name="image-outline" size={40} color={Colors.blue} />
               <AppText size="caption" color={Colors.textMuted}>

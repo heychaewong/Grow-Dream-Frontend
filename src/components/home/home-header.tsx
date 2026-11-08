@@ -10,7 +10,7 @@ export function HomeHeader() {
   return (
     <View style={styles.container}>
       <View style={styles.brand}>
-        {/* TODO: Figma 로고 이미지로 교체 */}
+        {/* 저작권 문제를 피하려고 Figma 로고 대신 오픈소스 아이콘을 써요. */}
         <View style={styles.logo}>
           <MaterialCommunityIcons name="sprout" size={26} color={Colors.primary} />
         </View>

@@ -13,18 +13,8 @@ import { boardPreviews, todayQuestion } from '@/data/home';
 const QUICK_MENU: QuickMenuItem[] = [
   { label: '경제교육', icon: 'cash-outline', iconColor: Colors.primary, href: '/education' },
   { label: '진로 로드맵', icon: 'git-network-outline', iconColor: Colors.blue, href: '/roadmap' },
-  {
-    label: '펀딩',
-    icon: 'bulb-outline',
-    iconColor: Colors.coin,
-    href: { pathname: '/coming-soon', params: { title: '펀딩' } },
-  },
-  {
-    label: '키워드림톡',
-    icon: 'phone-portrait-outline',
-    iconColor: Colors.blue,
-    href: { pathname: '/coming-soon', params: { title: '키워드림톡' } },
-  },
+  { label: '펀딩', icon: 'bulb-outline', iconColor: Colors.coin, href: '/funding' },
+  { label: '키워드림톡', icon: 'phone-portrait-outline', iconColor: Colors.blue, href: '/talk' },
 ];
 
 const comingSoon = (title: string) => router.push({ pathname: '/coming-soon', params: { title } });

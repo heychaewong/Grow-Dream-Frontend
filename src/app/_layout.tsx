@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AppMaxWidth, Colors, FontSources } from '@/constants/theme';
 import { AppStoreProvider } from '@/store/app-store';
+import { FundingStoreProvider } from '@/store/funding-store';
 import { RoadmapStoreProvider } from '@/store/roadmap-store';
 
 SplashScreen.preventAutoHideAsync();
@@ -32,13 +33,15 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <AppStoreProvider>
         <RoadmapStoreProvider>
-          <StatusBar style="dark" />
-          {/* 웹에서 넓은 화면으로 열어도 폰 화면 폭으로 보이도록 가운데 정렬 */}
-          <View style={styles.outer}>
-            <View style={styles.app}>
-              <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.white } }} />
+          <FundingStoreProvider>
+            <StatusBar style="dark" />
+            {/* 웹에서 넓은 화면으로 열어도 폰 화면 폭으로 보이도록 가운데 정렬 */}
+            <View style={styles.outer}>
+              <View style={styles.app}>
+                <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.white } }} />
+              </View>
             </View>
-          </View>
+          </FundingStoreProvider>
         </RoadmapStoreProvider>
       </AppStoreProvider>
     </SafeAreaProvider>
