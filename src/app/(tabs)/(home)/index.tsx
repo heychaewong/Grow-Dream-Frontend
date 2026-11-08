@@ -12,12 +12,7 @@ import { boardPreviews, todayQuestion } from '@/data/home';
 
 const QUICK_MENU: QuickMenuItem[] = [
   { label: '경제교육', icon: 'cash-outline', iconColor: Colors.primary, href: '/education' },
-  {
-    label: '진로 로드맵',
-    icon: 'git-network-outline',
-    iconColor: Colors.blue,
-    href: { pathname: '/coming-soon', params: { title: '진로 로드맵' } },
-  },
+  { label: '진로 로드맵', icon: 'git-network-outline', iconColor: Colors.blue, href: '/roadmap' },
   {
     label: '펀딩',
     icon: 'bulb-outline',

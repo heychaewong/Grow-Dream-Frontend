@@ -92,7 +92,7 @@ export default function MyPageScreen() {
             backgroundColor={Colors.highlight}
             color={Colors.textSub}
             size="small"
-            onPress={() => comingSoon('진로 로드맵')}
+            onPress={() => router.push({ pathname: '/roadmap', params: { id: 'social' } })}
           />
         </View>
 
