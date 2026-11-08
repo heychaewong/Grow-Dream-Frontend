@@ -1,4 +1,4 @@
-import { StyleSheet, Text, type TextProps } from 'react-native';
+import { Platform, StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
 
 import { Colors, FontFamily, FontSize, type FontWeightName } from '@/constants/theme';
 
@@ -32,5 +32,7 @@ export function AppText({
 const styles = StyleSheet.create({
   base: {
     includeFontPadding: false,
+    // 웹 브라우저는 한글을 글자 단위로 줄바꿈해서, 단어 단위로 끊기도록 맞춰요.
+    ...(Platform.OS === 'web' ? ({ wordBreak: 'keep-all' } as TextStyle) : null),
   },
 });

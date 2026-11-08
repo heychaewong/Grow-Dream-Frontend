@@ -35,9 +35,19 @@ export const Colors = {
   track: '#D9D9D9',
   surface: '#F5F5F5',
 
-  // 상태
-  correct: '#2894DC',
-  wrong: '#E5484D',
+  // 경제교육 퀴즈
+  quizGreen: '#5CB85C',
+  quizGreenSoft: '#B5E3B5',
+  wrong: '#F03A2E',
+  alert: '#FF8A8A',
+
+  // 랭킹
+  gold: '#E8B92F',
+  silver: '#9E9E9E',
+  bronze: '#D9822B',
+  orange: '#F7B54A',
+
+  dim: 'rgba(0, 0, 0, 0.35)',
 } as const;
 
 /** 굵기별 Pretendard 폰트 이름. Android는 커스텀 폰트의 fontWeight를 무시해서 이름으로 구분해요. */

@@ -9,11 +9,14 @@ import { Pill } from '@/components/ui/pill';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Colors, Radius, Spacing } from '@/constants/theme';
 import { currentUser } from '@/data/user';
+import { useCourseProgress } from '@/store/app-store';
 
 const comingSoon = (title: string) => router.push({ pathname: '/coming-soon', params: { title } });
 
 export default function MyPageScreen() {
-  const { stats, education } = currentUser;
+  const { stats } = currentUser;
+  const course = useCourseProgress();
+  const lastLecture = course.last ? `${course.last.lectureId}강` : '1강';
 
   const statItems = [
     { label: '취득 자격증', value: stats.certificates, unit: '' },
@@ -101,9 +104,9 @@ export default function MyPageScreen() {
             경제교육 진도율
           </AppText>
           <View style={styles.progressBox}>
-            <ProgressBar value={education.progress} />
+            <ProgressBar value={course.progress} />
             <AppText size="caption" weight="medium" color={Colors.primary}>
-              {education.lastLecture}까지 · {Math.round(education.progress * 100)}% 수강중
+              {lastLecture}까지 · {Math.round(course.progress * 100)}% 수강중
             </AppText>
           </View>
         </View>

@@ -9,10 +9,6 @@ export const currentUser = {
     diaryDays: 36,
     answeredQuestions: 37,
   },
-  education: {
-    progress: 0.8,
-    lastLecture: '3강',
-  },
   introduction:
     '안녕하세요, 하늘고등학교 3학년을 졸업한 이하늘입니다. 저는 현재 자립 준비를 막 시작하고 있어요. 저의 꿈은 도움이 필요한 사람 곁을 지키는 사회복지사가 되는 것입니다.',
 };

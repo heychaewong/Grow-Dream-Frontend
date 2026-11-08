@@ -7,6 +7,7 @@ import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AppMaxWidth, Colors, FontSources } from '@/constants/theme';
+import { AppStoreProvider } from '@/store/app-store';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,13 +22,15 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
-      {/* 웹에서 넓은 화면으로 열어도 폰 화면 폭으로 보이도록 가운데 정렬 */}
-      <View style={styles.outer}>
-        <View style={styles.app}>
-          <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.white } }} />
+      <AppStoreProvider>
+        <StatusBar style="dark" />
+        {/* 웹에서 넓은 화면으로 열어도 폰 화면 폭으로 보이도록 가운데 정렬 */}
+        <View style={styles.outer}>
+          <View style={styles.app}>
+            <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.white } }} />
+          </View>
         </View>
-      </View>
+      </AppStoreProvider>
     </SafeAreaProvider>
   );
 }

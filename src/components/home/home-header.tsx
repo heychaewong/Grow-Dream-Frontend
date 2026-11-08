@@ -2,14 +2,11 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View } from 'react-native';
 
 import { AppText } from '@/components/ui/app-text';
+import { CoinBadge } from '@/components/ui/coin-badge';
 import { Colors, Spacing } from '@/constants/theme';
 
-type HomeHeaderProps = {
-  coins: number;
-};
-
 /** 로고 + 코인 + 검색 + 알림 */
-export function HomeHeader({ coins }: HomeHeaderProps) {
+export function HomeHeader() {
   return (
     <View style={styles.container}>
       <View style={styles.brand}>
@@ -23,16 +20,7 @@ export function HomeHeader({ coins }: HomeHeaderProps) {
       </View>
 
       <View style={styles.actions}>
-        <View style={styles.coin} accessibilityLabel={`보유 코인 ${coins}개`}>
-          <View style={styles.coinIcon}>
-            <AppText size="caption" weight="extrabold" color={Colors.white}>
-              $
-            </AppText>
-          </View>
-          <AppText size="body" weight="bold">
-            {coins}
-          </AppText>
-        </View>
+        <CoinBadge />
         <Ionicons name="search-outline" size={26} color={Colors.text} accessibilityLabel="검색" />
         <Ionicons name="notifications-outline" size={26} color={Colors.text} accessibilityLabel="알림" />
       </View>
@@ -66,24 +54,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.md,
-  },
-  coin: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.md,
-    paddingLeft: 6,
-    paddingRight: 18,
-    paddingVertical: 3,
-    borderRadius: 999,
-    borderWidth: 2,
-    borderColor: Colors.yellow,
-  },
-  coinIcon: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: Colors.coin,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

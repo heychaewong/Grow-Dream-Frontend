@@ -9,7 +9,6 @@ import { TodayQuestionBanner } from '@/components/home/today-question-banner';
 import { HighlightTitle } from '@/components/ui/highlight-title';
 import { Colors, Spacing } from '@/constants/theme';
 import { boardPreviews, todayQuestion } from '@/data/home';
-import { currentUser } from '@/data/user';
 
 const QUICK_MENU: QuickMenuItem[] = [
   { label: '경제교육', icon: 'cash-outline', iconColor: Colors.primary, href: '/education' },
@@ -38,7 +37,7 @@ const comingSoon = (title: string) => router.push({ pathname: '/coming-soon', pa
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
-      <HomeHeader coins={currentUser.coins} />
+      <HomeHeader />
 
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <TodayQuestionBanner {...todayQuestion} onPressAnswer={() => comingSoon('오늘의 질문')} />
