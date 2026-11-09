@@ -79,11 +79,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.borderLight,
     borderRadius: Radius.sm,
     backgroundColor: Colors.white,
-    elevation: 4,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.12,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
   },
   item: {
     paddingHorizontal: Spacing.md,

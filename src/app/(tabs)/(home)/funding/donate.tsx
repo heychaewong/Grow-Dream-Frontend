@@ -331,11 +331,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.md,
     paddingVertical: 6,
     borderRadius: Radius.sm,
-    elevation: 2,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    shadowOffset: { width: 0, height: 2 },
   },
   empty: {
     textAlign: 'center',
