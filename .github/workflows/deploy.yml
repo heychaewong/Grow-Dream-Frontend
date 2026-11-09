@@ -1,0 +1,55 @@
+# main에 합쳐질 때마다 웹 데모를 GitHub Pages에 배포해요.
+# 주소: https://heychaewong.github.io/Grow-Dream-Frontend/
+name: Deploy web demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Actions 탭에서 직접 실행할 수도 있어요.
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 배포가 겹치면 먼저 시작한 배포는 끝까지 마치고, 대기 중인 것만 최신으로 바꿔요.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 타입체크와 린트를 통과해야만 배포해요.
+      - run: npx tsc --noEmit
+      - run: npx expo lint
+
+      # app.json의 experiments.baseUrl(/Grow-Dream-Frontend) 기준으로 화면마다 HTML을 만들어요.
+      - run: npx expo export -p web
+
+      # Expo가 만든 _expo 폴더를 Jekyll이 무시하지 않도록 해요.
+      - run: touch dist/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -24,6 +24,11 @@ import { useFundingStore } from '@/store/funding-store';
 type MyMessage = { id: string; text: string };
 
 /** 후원자와 수급자가 소식을 주고받는 화면 */
+/** 웹 정적 배포용: 수급자마다 대화 화면 HTML을 미리 만들어요. */
+export function generateStaticParams(): { recipientId: string }[] {
+  return recipients.map((r) => ({ recipientId: r.id }));
+}
+
 export default function SponsorChatScreen() {
   const { recipientId } = useLocalSearchParams<{ recipientId: string }>();
   const recipient = recipients.find((r) => r.id === recipientId);
