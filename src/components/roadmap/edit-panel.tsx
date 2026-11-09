@@ -65,7 +65,7 @@ export function EditPanel({ suggestions, addedTitles, editing, onToggleEditing, 
               <View style={[styles.tool, active && styles.toolActive]}>
                 <MaterialCommunityIcons name={tool.icon} size={small ? 26 : 36} color={Colors.text} />
               </View>
-              <AppText size="caption" color={Colors.textSub}>
+              <AppText size="small" color={Colors.textSub}>
                 {tool.label}
               </AppText>
             </Pressable>
