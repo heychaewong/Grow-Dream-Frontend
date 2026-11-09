@@ -79,7 +79,7 @@ export function LockedAlertModal({
         {message}
       </AppText>
       <Pressable onPress={onClose} style={styles.alertButton} accessibilityRole="button">
-        <AppText size="small" weight="bold" color={Colors.white}>
+        <AppText size="body" weight="bold" color={Colors.white}>
           닫기
         </AppText>
       </Pressable>

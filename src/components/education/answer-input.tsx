@@ -13,10 +13,10 @@ type AnswerInputProps = {
 };
 
 /** 연두색 "✎ 답변 작성하기" 입력칸 */
-export function AnswerInput({ value, onChangeText, editable = true, wrong, width = 150 }: AnswerInputProps) {
+export function AnswerInput({ value, onChangeText, editable = true, wrong, width = 180 }: AnswerInputProps) {
   return (
     <View style={[styles.box, { width }, wrong && styles.wrong]}>
-      <Ionicons name="create-outline" size={16} color={Colors.textSub} />
+      <Ionicons name="create-outline" size={18} color={Colors.textSub} />
       <TextInput
         value={value}
         onChangeText={onChangeText}
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     gap: 6,
     alignSelf: 'center',
     paddingHorizontal: 8,
-    height: 28,
-    borderRadius: 4,
+    height: 38,
+    borderRadius: 6,
     borderWidth: 1.5,
     borderColor: 'transparent',
     backgroundColor: Colors.quizGreenSoft,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     padding: 0,
     textAlign: 'center',
     fontFamily: FontFamily.medium,
-    fontSize: FontSize.small,
+    fontSize: FontSize.body,
     color: Colors.text,
     outlineWidth: 0,
   },

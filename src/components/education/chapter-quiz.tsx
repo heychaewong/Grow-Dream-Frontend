@@ -25,7 +25,7 @@ export function OxQuestionRow({ question, answer, onAnswer, graded, onShowExplan
   return (
     <View style={styles.oxBlock}>
       <View style={styles.oxRow}>
-        <AppText size="small" weight="medium" style={styles.oxText}>
+        <AppText size="body" weight="medium" style={styles.oxText}>
           {question.text}
         </AppText>
         <View style={styles.oxButtons}>
@@ -68,10 +68,10 @@ export function BlankQuestionBlock({
       <AppText size="bodyLarge" style={styles.blankText}>
         {question.text}
       </AppText>
-      <AnswerInput value={answer ?? ''} onChangeText={onAnswer} editable={!graded} wrong={wrong} width={130} />
+      <AnswerInput value={answer ?? ''} onChangeText={onAnswer} editable={!graded} wrong={wrong} width={180} />
       {wrong && (
         <>
-          <AppText size="caption" color={Colors.wrong} weight="semibold">
+          <AppText size="small" color={Colors.wrong} weight="semibold">
             정답: {question.answer}
           </AppText>
           {question.explanation && <ExplanationChip onPress={onShowExplanation} />}

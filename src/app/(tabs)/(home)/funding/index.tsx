@@ -50,7 +50,7 @@ export default function FundingMainScreen() {
               <AppText size="body" weight="bold">
                 {f.title}
               </AppText>
-              <AppText size="caption" style={styles.center}>
+              <AppText size="small" style={styles.center}>
                 {f.description}
               </AppText>
             </View>

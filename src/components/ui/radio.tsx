@@ -14,7 +14,7 @@ type RadioProps = {
 
 export function Radio({ label, selected, onPress, size = 'body' }: RadioProps) {
   return (
-    <Pressable
+    <Pressable hitSlop={8}
       onPress={onPress}
       style={styles.row}
       accessibilityRole="radio"
@@ -38,7 +38,7 @@ type CheckboxProps = {
 
 export function Checkbox({ label, checked, onPress }: CheckboxProps) {
   return (
-    <Pressable
+    <Pressable hitSlop={8}
       onPress={onPress}
       style={styles.row}
       accessibilityRole="checkbox"

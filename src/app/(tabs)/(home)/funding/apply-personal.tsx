@@ -55,7 +55,7 @@ export default function PersonalApplyScreen() {
         {personalApplied && (
           <View style={styles.notice}>
             <Ionicons name="checkmark-circle" size={18} color={Colors.primary} />
-            <AppText size="small" weight="semibold" color={Colors.primary}>
+            <AppText size="body" weight="semibold" color={Colors.primary}>
               이미 신청했어요. 다시 제출하면 내용이 수정돼요.
             </AppText>
           </View>
@@ -117,17 +117,17 @@ export default function PersonalApplyScreen() {
             {profileAttached ? (
               <>
                 <Ionicons name="person-circle" size={36} color={Colors.primary} />
-                <AppText size="small" weight="bold">
+                <AppText size="body" weight="bold">
                   {currentUser.name} 님의 마이페이지
                 </AppText>
-                <AppText size="caption" color={Colors.textMuted}>
+                <AppText size="small" color={Colors.textMuted}>
                   꿈 · 경제교육 진도 · 진로 로드맵이 함께 공개돼요
                 </AppText>
               </>
             ) : (
               <>
                 <MaterialCommunityIcons name="folder-upload-outline" size={28} color={Colors.textMuted} />
-                <AppText size="caption" color={Colors.textMuted}>
+                <AppText size="small" color={Colors.textMuted}>
                   클릭하여 업로드하기
                 </AppText>
               </>
@@ -152,12 +152,12 @@ export default function PersonalApplyScreen() {
         <SectionTitle>자기 PR ⭐</SectionTitle>
         <Row>
           <AppText size="body">(선택) 사진 업로드</AppText>
-          <Pressable
+          <Pressable hitSlop={8}
             onPress={() => setPhotoAttached((a) => !a)}
             style={styles.fileButton}
             accessibilityRole="button">
             <Ionicons name={photoAttached ? 'image' : 'share-outline'} size={14} color={Colors.white} />
-            <AppText size="caption" weight="semibold" color={Colors.white}>
+            <AppText size="small" weight="semibold" color={Colors.white}>
               {photoAttached ? '사진 1장 선택됨' : '파일선택'}
             </AppText>
           </Pressable>
@@ -191,7 +191,7 @@ export default function PersonalApplyScreen() {
           </AppText>
         </Pressable>
         {!canSubmit && (
-          <AppText size="caption" color={Colors.textMuted} style={styles.center}>
+          <AppText size="small" color={Colors.textMuted} style={styles.center}>
             {missing.join(', ')}을(를) 완료해 주세요.
           </AppText>
         )}
@@ -212,7 +212,7 @@ export default function PersonalApplyScreen() {
         <AppText size="title" weight="bold">
           신청이 완료되었어요
         </AppText>
-        <AppText size="small" color={Colors.textSub} style={styles.center}>
+        <AppText size="body" color={Colors.textSub} style={styles.center}>
           키워드림이 활동 내역과 자기 PR을 확인한 뒤{'\n'}정기후원 수급자 목록에 올려 드릴게요.
         </AppText>
         <Pressable onPress={() => router.back()} style={styles.doneButton} accessibilityRole="button">

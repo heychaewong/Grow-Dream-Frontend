@@ -91,7 +91,7 @@ export default function MyPageScreen() {
             label="나의 진로 로드맵 보러가기"
             backgroundColor={Colors.highlight}
             color={Colors.textSub}
-            size="small"
+            size="body"
             onPress={() => router.push({ pathname: '/roadmap', params: { id: 'social' } })}
           />
         </View>
@@ -105,7 +105,7 @@ export default function MyPageScreen() {
           </AppText>
           <View style={styles.progressBox}>
             <ProgressBar value={course.progress} />
-            <AppText size="caption" weight="medium" color={Colors.primary}>
+            <AppText size="small" weight="medium" color={Colors.primary}>
               {lastLecture}까지 · {Math.round(course.progress * 100)}% 수강중
             </AppText>
           </View>
@@ -118,7 +118,7 @@ export default function MyPageScreen() {
           자기소개
         </AppText>
         <View style={styles.introBox}>
-          <AppText size="small" color={Colors.textMuted}>
+          <AppText size="body" color={Colors.textSub}>
             {currentUser.introduction}
           </AppText>
         </View>

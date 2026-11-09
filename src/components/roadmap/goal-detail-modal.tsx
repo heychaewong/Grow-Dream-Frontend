@@ -61,7 +61,7 @@ export function GoalDetailModal({ goal, index, onClose, onToggleDone, onRecommen
                   </View>
                 )}
                 {goal.info && (
-                  <AppText size="caption" style={styles.flex}>
+                  <AppText size="small" style={styles.flex}>
                     {goal.info}
                   </AppText>
                 )}

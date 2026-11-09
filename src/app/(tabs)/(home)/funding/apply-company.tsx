@@ -81,19 +81,19 @@ export default function CompanyFundingScreen() {
                   <AppText size="body" weight="bold">
                     {p.company}
                   </AppText>
-                  <AppText size="small" color={Colors.textMuted}>
+                  <AppText size="body" color={Colors.textMuted}>
                     {p.title}
                   </AppText>
                   <View style={styles.statusRow}>
-                    <AppText size="caption" color={Colors.textSub}>
+                    <AppText size="small" color={Colors.textSub}>
                       상태 :
                     </AppText>
                     <StatusPill program={p} count={appliedCount(p)} applied={applied} full={full} />
                   </View>
                 </View>
               </View>
-              <Pressable onPress={() => setDetail(p)} style={styles.more} accessibilityRole="button">
-                <AppText size="caption" color={Colors.textMuted}>
+              <Pressable hitSlop={8} onPress={() => setDetail(p)} style={styles.more} accessibilityRole="button">
+                <AppText size="small" color={Colors.textMuted}>
                   더 알아보기
                 </AppText>
                 <Ionicons name="chevron-forward" size={14} color={Colors.textMuted} />
@@ -148,7 +148,7 @@ function StatusPill({ program, count, applied, full }: { program: Program; count
   const background = applied ? Colors.blue : full ? Colors.primaryDark : Colors.primarySoft;
   return (
     <View style={[styles.pill, { backgroundColor: background }]}>
-      <AppText size="caption" weight="semibold" color={Colors.white}>
+      <AppText size="small" weight="semibold" color={Colors.white}>
         {label} ( {count} / {program.capacity} )
       </AppText>
     </View>

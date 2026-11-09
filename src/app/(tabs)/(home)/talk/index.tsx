@@ -157,7 +157,7 @@ function ActionIcon({
   onPress: () => void;
 }) {
   return (
-    <Pressable onPress={onPress} style={styles.action} accessibilityRole="button" accessibilityLabel={`${label} ${count}`}>
+    <Pressable hitSlop={8} onPress={onPress} style={styles.action} accessibilityRole="button" accessibilityLabel={`${label} ${count}`}>
       <Ionicons name={icon} size={24} color={color} />
       <AppText size="small" color={Colors.textSub}>
         {count.toLocaleString('ko-KR')}

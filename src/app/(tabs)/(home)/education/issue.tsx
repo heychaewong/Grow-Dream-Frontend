@@ -40,14 +40,14 @@ export default function TodayIssueScreen() {
 
           {page === 1 && (
             <View style={styles.source}>
-              <AppText size="small" weight="bold">
+              <AppText size="body" weight="bold">
                 기사 출처
               </AppText>
               <Pressable
                 onPress={() => Linking.openURL(todayIssue.source.url)}
                 style={({ pressed }) => [styles.sourceCard, pressed && { opacity: 0.7 }]}
                 accessibilityRole="link">
-                <AppText size="small" weight="bold">
+                <AppText size="body" weight="bold">
                   {todayIssue.source.title}
                 </AppText>
                 <AppText size="caption" color={Colors.blue} numberOfLines={1}>

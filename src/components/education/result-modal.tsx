@@ -27,7 +27,7 @@ export function ResultModal({ visible, onClose, correct, total, rewarded }: Resu
         {reward}
       </AppText>
       <Pressable onPress={onClose} style={styles.close} accessibilityRole="button">
-        <AppText size="small" weight="bold">
+        <AppText size="body" weight="bold">
           닫기
         </AppText>
       </Pressable>

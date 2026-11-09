@@ -38,7 +38,7 @@ export default function GoalExploreScreen() {
           </View>
           <View style={styles.flex}>
             <View style={styles.adLink}>
-              <AppText size="caption" weight="semibold" color={Colors.textSub}>
+              <AppText size="small" weight="semibold" color={Colors.textSub}>
                 무료 적성 검사 받으러 가기
               </AppText>
               <Ionicons name="open-outline" size={12} color={Colors.textSub} />
@@ -56,7 +56,7 @@ export default function GoalExploreScreen() {
           <AppText size="headline" weight="bold">
             진로 목표 탐색하기
           </AppText>
-          <AppText size="small" color={Colors.textSub}>
+          <AppText size="body" color={Colors.textSub}>
             진로 로드맵 설계가 막막할 때! 키워드림이 추천해드려요.
           </AppText>
         </View>
@@ -77,7 +77,7 @@ export default function GoalExploreScreen() {
           </View>
           <View style={styles.aiIllustration}>
             <MaterialCommunityIcons name="map-marker-path" size={64} color={Colors.blue} />
-            <AppText size="small" color={Colors.textSub} style={styles.center}>
+            <AppText size="body" color={Colors.textSub} style={styles.center}>
               나이, 기간, 최종 목표를 알려주면{'\n'}딱 맞는 목표와 플랜을 추천해요
             </AppText>
           </View>

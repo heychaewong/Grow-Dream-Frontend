@@ -149,13 +149,13 @@ const styles = StyleSheet.create({
     width: 78,
     height: 78,
     marginTop: 60,
-    backgroundColor: '#C9C9C9',
+    backgroundColor: Colors.borderLight,
   },
   bigCircle: {
     width: 110,
     height: 110,
     marginBottom: 40,
-    backgroundColor: '#E6E6E6',
+    backgroundColor: Colors.divider,
   },
   arrow: {
     marginHorizontal: -8,

@@ -111,14 +111,14 @@ export default function DonateScreen() {
                 </View>
               </View>
               <View style={styles.info}>
-                <AppText size="small">
-                  <AppText size="small" weight="bold">
+                <AppText size="body">
+                  <AppText size="body" weight="bold">
                     나의 꿈 :{' '}
                   </AppText>
                   {r.dream}
                 </AppText>
-                <AppText size="small" style={styles.intro}>
-                  <AppText size="small" weight="bold">
+                <AppText size="body" style={styles.intro}>
+                  <AppText size="body" weight="bold">
                     한줄 소개 :{' '}
                   </AppText>
                   {r.intro}
@@ -156,7 +156,7 @@ export default function DonateScreen() {
               <AppText size="title" weight="bold" style={styles.center}>
                 {target.name} 님의 후원자가 되었어요!
               </AppText>
-              <AppText size="small" color={Colors.textSub} style={styles.center}>
+              <AppText size="body" color={Colors.textSub} style={styles.center}>
                 매달 {won(amount)}씩 후원돼요.{'\n'}키워드림톡에서 소식을 받아볼 수 있어요.
               </AppText>
               <Pressable
@@ -190,7 +190,7 @@ export default function DonateScreen() {
                     style={[styles.amount, a === amount && styles.amountActive]}
                     accessibilityRole="radio"
                     accessibilityState={{ selected: a === amount }}>
-                    <AppText size="small" weight="bold" color={a === amount ? Colors.white : Colors.text}>
+                    <AppText size="body" weight="bold" color={a === amount ? Colors.white : Colors.text}>
                       {won(a)}
                     </AppText>
                   </Pressable>
@@ -215,7 +215,7 @@ function FilterChip({ label, active, onPress }: { label: string; active: boolean
       style={[styles.chip, active && styles.chipActive]}
       accessibilityRole="button"
       accessibilityState={{ selected: active }}>
-      <AppText size="small" weight="medium" color={active ? Colors.primary : Colors.textSub}>
+      <AppText size="body" weight="medium" color={active ? Colors.primary : Colors.textSub}>
         {label}
       </AppText>
       <Ionicons name={active ? 'checkmark' : 'chevron-down'} size={14} color={active ? Colors.primary : Colors.textSub} />
@@ -235,11 +235,11 @@ function ActionButton({
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <Pressable hitSlop={8}
       onPress={onPress}
       accessibilityRole="button"
       style={({ pressed }) => [styles.action, { backgroundColor: color }, pressed && { opacity: 0.8 }]}>
-      <AppText size="caption" weight="semibold" color={textColor}>
+      <AppText size="small" weight="semibold" color={textColor}>
         {label}
       </AppText>
     </Pressable>
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   intro: {
-    lineHeight: 23,
+    lineHeight: 25,
   },
   actions: {
     flexDirection: 'row',

@@ -58,7 +58,7 @@ export default function EducationMainScreen() {
         {/* 내 서재 */}
         <Section title="내 서재">
           <SectionTag label={BASIC_COURSE_TITLE} />
-          <AppText size="small">{BASIC_COURSE_DESCRIPTION}</AppText>
+          <AppText size="body">{BASIC_COURSE_DESCRIPTION}</AppText>
 
           <View style={styles.library}>
             <Pressable
@@ -77,12 +77,12 @@ export default function EducationMainScreen() {
             <View style={styles.courseInfo}>
               <InfoLine label="시작 :" value={BASIC_COURSE_STARTED_AT} />
               <View style={styles.infoRow}>
-                <AppText size="small" weight="bold" style={styles.infoLabel}>
+                <AppText size="body" weight="bold" style={styles.infoLabel}>
                   진도율 :
                 </AppText>
-                <AppText size="small" weight="bold" style={styles.flex}>
+                <AppText size="body" weight="bold" style={styles.flex}>
                   완료까지{' '}
-                  <AppText size="small" weight="bold" color={Colors.quizGreen}>
+                  <AppText size="body" weight="bold" color={Colors.quizGreen}>
                     {remain}%
                   </AppText>{' '}
                   남았어요. 힘내세요!
@@ -95,9 +95,9 @@ export default function EducationMainScreen() {
                 </AppText>
               </View>
               {course.last && (
-                <AppText size="small" weight="bold">
+                <AppText size="body" weight="bold">
                   마지막 학습:{' '}
-                  <AppText size="small" weight="bold" color={Colors.quizGreen}>
+                  <AppText size="body" weight="bold" color={Colors.quizGreen}>
                     {`‘${course.last.lectureId}강 - ${course.last.chapterTitle}’`}
                   </AppText>
                 </AppText>
@@ -106,7 +106,7 @@ export default function EducationMainScreen() {
           </View>
 
           <SectionTag label="세부 분야 교육" />
-          <AppText size="small">{BASIC_COURSE_TITLE} 완료 후 이수할 수 있습니다.</AppText>
+          <AppText size="body">{BASIC_COURSE_TITLE} 완료 후 이수할 수 있습니다.</AppText>
           <View style={styles.lockedRow}>
             {advancedCourses.map((c) => (
               <Pressable
@@ -126,7 +126,7 @@ export default function EducationMainScreen() {
           </View>
 
           <SectionTag label="New! 경제 교육" dot />
-          <AppText size="small">최신 이슈에 맞춰 업데이트 되는 새로운 교육입니다.</AppText>
+          <AppText size="body">최신 이슈에 맞춰 업데이트 되는 새로운 교육입니다.</AppText>
           <FeatureCard
             illustration={<MaterialCommunityIcons name="magnify" size={56} color={Colors.coin} />}
             actionLabel="교육 받기"
@@ -134,7 +134,7 @@ export default function EducationMainScreen() {
             <AppText size="bodyLarge" weight="bold">
               {todayIssue.title}
             </AppText>
-            <AppText size="small" style={styles.issuePreview}>
+            <AppText size="body" style={styles.issuePreview}>
               {todayIssue.question.replaceAll('**', '')}
             </AppText>
           </FeatureCard>
@@ -162,7 +162,7 @@ export default function EducationMainScreen() {
         <View style={styles.rankingList}>
           {ranking.slice(0, 3).map((r, i) => (
             <View key={r.name} style={styles.rankingRow}>
-              <AppText size="small" weight="medium">
+              <AppText size="body" weight="medium">
                 {i + 1}위 {r.name}
                 {r.isMe ? ' (나)' : ''}
               </AppText>
@@ -194,10 +194,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function InfoLine({ label, value }: { label: string; value: string }) {
   return (
     <View style={styles.infoRow}>
-      <AppText size="small" weight="bold" style={styles.infoLabel}>
+      <AppText size="body" weight="bold" style={styles.infoLabel}>
         {label}
       </AppText>
-      <AppText size="small" weight="bold">
+      <AppText size="body" weight="bold">
         {value}
       </AppText>
     </View>
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     paddingRight: Spacing.lg,
   },
   quizPreview: { marginTop: Spacing.sm, lineHeight: 27 },
-  issuePreview: { marginTop: Spacing.sm, lineHeight: 23 },
+  issuePreview: { marginTop: Spacing.sm, lineHeight: 26 },
   illustration: {
     width: 86,
     height: 86,
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   bookLocked: { borderColor: Colors.primarySoft, backgroundColor: Colors.divider },
   courseInfo: { flex: 1, gap: 6, paddingTop: Spacing.xs },
   infoRow: { flexDirection: 'row', gap: Spacing.sm },
-  infoLabel: { width: 52 },
+  infoLabel: { width: 62 },
   bar: { justifyContent: 'center' },
   barLabel: { position: 'absolute', alignSelf: 'center', fontSize: 9, lineHeight: 12 },
   lockedRow: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: Spacing.sm },
