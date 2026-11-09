@@ -35,6 +35,7 @@
       ]
     ],
     "experiments": {
+      "baseUrl": "/Grow-Dream-Frontend",
       "typedRoutes": true,
       "reactCompiler": true
     }

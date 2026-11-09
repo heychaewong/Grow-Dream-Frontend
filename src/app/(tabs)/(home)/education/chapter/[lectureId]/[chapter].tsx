@@ -15,6 +15,11 @@ import { useAppStore } from '@/store/app-store';
 
 type Step = 'lesson' | 'quiz';
 
+/** 웹 정적 배포용: 강의의 장마다 HTML을 미리 만들어요. 장 번호는 1부터 시작해요. */
+export function generateStaticParams(): { lectureId: string; chapter: string }[] {
+  return lectures.flatMap((l) => l.chapters.map((_, i) => ({ lectureId: String(l.id), chapter: String(i + 1) })));
+}
+
 export default function ChapterScreen() {
   const params = useLocalSearchParams<{ lectureId: string; chapter: string }>();
   const lecture = lectures.find((l) => String(l.id) === params.lectureId);

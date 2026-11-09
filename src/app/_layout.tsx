@@ -27,7 +27,10 @@ export default function RootLayout() {
     if (fontsLoaded || fontError) SplashScreen.hideAsync();
   }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) return null;
+  // 앱에서는 폰트가 준비될 때까지 스플래시를 유지해요.
+  // 웹은 미리 만든 HTML을 바로 보여 줘야 해서 기다리지 않아요. 브라우저가 폰트를 받는 대로 바꿔 줘요.
+  // (웹에서도 null을 반환하면 서버 HTML과 첫 화면이 달라져 hydration 오류가 나요.)
+  if (!fontsLoaded && !fontError && Platform.OS !== 'web') return null;
 
   return (
     <SafeAreaProvider>

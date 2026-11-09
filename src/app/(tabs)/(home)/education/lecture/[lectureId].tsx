@@ -11,6 +11,11 @@ import { Colors, Spacing } from '@/constants/theme';
 import { BASIC_COURSE_TITLE, lectures } from '@/data/education';
 import { useAppStore } from '@/store/app-store';
 
+/** 웹 정적 배포용: 강의마다 HTML을 미리 만들어서 주소로 바로 들어와도 열리게 해요. */
+export function generateStaticParams(): { lectureId: string }[] {
+  return lectures.map((l) => ({ lectureId: String(l.id) }));
+}
+
 export default function LectureScreen() {
   const { lectureId } = useLocalSearchParams<{ lectureId: string }>();
   const lecture = lectures.find((l) => String(l.id) === lectureId);
