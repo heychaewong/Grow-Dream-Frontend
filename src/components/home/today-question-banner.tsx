@@ -46,11 +46,11 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
 
       <View style={styles.content}>
         <View style={styles.question}>
-          <AppText size="bodyLarge" weight="medium">
+          <AppText size="title" weight="medium">
             No.{String(number).padStart(2, '0')}
           </AppText>
-          <AppText size="bodyLarge" style={styles.flex}>
-            <AppText size="bodyLarge" weight="bold">
+          <AppText size="title" style={styles.flex}>
+            <AppText size="title" weight="bold">
               {highlight}
             </AppText>
             {rest}
@@ -71,12 +71,12 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
               accessibilityLabel="오늘의 질문 답변 입력"
             />
             <View style={styles.editorFooter}>
-              <AppText size="small" color={Colors.textMuted}>
+              <AppText size="body" color={Colors.textMuted}>
                 {draft.length}/{MAX_LENGTH}
               </AppText>
               <View style={styles.editorButtons}>
                 <Pressable onPress={() => setEditing(false)} hitSlop={8} accessibilityRole="button">
-                  <AppText size="body" weight="medium" color={Colors.textMuted}>
+                  <AppText size="bodyLarge" weight="medium" color={Colors.textMuted}>
                     취소
                   </AppText>
                 </Pressable>
@@ -85,7 +85,7 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
                   disabled={!draft.trim()}
                   style={[styles.saveButton, !draft.trim() && { opacity: 0.4 }]}
                   accessibilityRole="button">
-                  <AppText size="body" weight="bold" color={Colors.white}>
+                  <AppText size="bodyLarge" weight="bold" color={Colors.white}>
                     등록
                   </AppText>
                 </Pressable>
@@ -94,12 +94,12 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
           </View>
         ) : answer ? (
           <View style={styles.answerBox}>
-            <AppText size="bodyLarge" style={styles.answerText}>
+            <AppText size="title" style={styles.answerText}>
               {answer}
             </AppText>
             <Pressable onPress={startEditing} hitSlop={8} style={styles.answerLink} accessibilityRole="button">
               <Ionicons name="create-outline" size={18} color={Colors.textMuted} />
-              <AppText size="body" color={Colors.textMuted}>
+              <AppText size="bodyLarge" color={Colors.textMuted}>
                 답변 수정하기
               </AppText>
             </Pressable>
@@ -110,7 +110,7 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
             accessibilityRole="button"
             style={({ pressed }) => [styles.answerLink, pressed && { opacity: 0.6 }]}>
             <Ionicons name="create-outline" size={20} color={Colors.textMuted} />
-            <AppText size="bodyLarge" color={Colors.textMuted}>
+            <AppText size="title" color={Colors.textMuted}>
               답변 작성하기
             </AppText>
           </Pressable>
@@ -187,8 +187,8 @@ const styles = StyleSheet.create({
   input: {
     minHeight: 72,
     fontFamily: FontFamily.regular,
-    fontSize: FontSize.bodyLarge,
-    lineHeight: Math.round(FontSize.bodyLarge * 1.4),
+    fontSize: FontSize.title,
+    lineHeight: Math.round(FontSize.title * 1.4),
     color: Colors.text,
     textAlignVertical: 'top',
     outlineWidth: 0,

@@ -5,12 +5,6 @@ import { AppText } from '@/components/ui/app-text';
 import { Colors, Radius, Spacing } from '@/constants/theme';
 import type { BoardPreview } from '@/data/home';
 
-/** 테두리는 모두 브랜드 초록으로 통일하고, 아바타 색만 게시판별로 달라요. */
-const AVATAR_COLORS = {
-  green: Colors.primary,
-  yellow: Colors.yellow,
-} as const;
-
 type BoardPreviewCardProps = {
   post: BoardPreview;
   onPress: () => void;
@@ -18,8 +12,6 @@ type BoardPreviewCardProps = {
 
 /** 커뮤니티 게시판 미리보기 카드 */
 export function BoardPreviewCard({ post, onPress }: BoardPreviewCardProps) {
-  const avatarColor = AVATAR_COLORS[post.tone];
-
   return (
     <Pressable
       onPress={onPress}
@@ -27,25 +19,25 @@ export function BoardPreviewCard({ post, onPress }: BoardPreviewCardProps) {
       accessibilityLabel={`${post.board} 게시판으로 이동`}
       style={({ pressed }) => [styles.card, pressed && { opacity: 0.7 }]}>
       <View style={styles.titleRow}>
-        <AppText size="bodyLarge" weight="bold">
+        <AppText size="title" weight="bold">
           {post.board}
         </AppText>
-        <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
+        <Ionicons name="chevron-forward" size={22} color={Colors.textMuted} />
       </View>
 
       <View style={styles.body}>
-        <View style={[styles.avatar, { backgroundColor: avatarColor }]}>
-          <Ionicons name="person" size={24} color={Colors.white} />
+        <View style={styles.avatar}>
+          <Ionicons name="person" size={26} color={Colors.white} />
         </View>
         <View style={styles.texts}>
-          <AppText size="body" weight="semibold">
+          <AppText size="bodyLarge" weight="semibold">
             {post.author}
           </AppText>
-          <AppText size="body" numberOfLines={1}>
+          <AppText size="bodyLarge" numberOfLines={1}>
             {post.content}
           </AppText>
         </View>
-        <AppText size="small" weight="medium" color={Colors.textSub} style={styles.time}>
+        <AppText size="body" weight="medium" color={Colors.textSub} style={styles.time}>
           {post.time}
         </AppText>
       </View>
@@ -75,11 +67,12 @@ const styles = StyleSheet.create({
     paddingLeft: 2,
   },
   avatar: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: 46,
+    height: 46,
+    borderRadius: 23,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Colors.primary,
   },
   texts: {
     flex: 1,
