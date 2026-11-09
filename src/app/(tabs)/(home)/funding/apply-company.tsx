@@ -92,7 +92,7 @@ export default function CompanyFundingScreen() {
                   </View>
                 </View>
               </View>
-              <Pressable onPress={() => setDetail(p)} style={styles.more} accessibilityRole="button">
+              <Pressable hitSlop={8} onPress={() => setDetail(p)} style={styles.more} accessibilityRole="button">
                 <AppText size="small" color={Colors.textMuted}>
                   더 알아보기
                 </AppText>

@@ -36,7 +36,7 @@ export default function RankingScreen() {
             현재 1위 {formatRankingRecord(leader)}
           </AppText>
           {me && <AppText size="small">나의 퀴즈 {formatRankingRecord(me)}</AppText>}
-          <Pressable
+          <Pressable hitSlop={8}
             onPress={() => router.push('/education/daily-quiz')}
             style={({ pressed }) => [styles.dailyButton, pressed && { opacity: 0.8 }]}
             accessibilityRole="button">

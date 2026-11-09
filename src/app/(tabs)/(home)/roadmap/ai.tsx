@@ -84,7 +84,7 @@ export default function AiRecommendScreen() {
             />
           ))}
           {recommended.length > 3 && (
-            <Pressable onPress={() => setShowAll((s) => !s)} style={styles.more} accessibilityRole="button">
+            <Pressable hitSlop={8} onPress={() => setShowAll((s) => !s)} style={styles.more} accessibilityRole="button">
               <AppText size="small" color={Colors.textMuted}>
                 {showAll ? '접기' : '더보기'}
               </AppText>
@@ -123,14 +123,14 @@ export default function AiRecommendScreen() {
               <AppText size="body" weight="bold" style={styles.flex}>
                 (익명) 님의 진로 로드맵
               </AppText>
-              <Pressable onPress={() => comingSoon('Best Case 로드맵')} style={styles.seeButton} accessibilityRole="button">
+              <Pressable hitSlop={8} onPress={() => comingSoon('Best Case 로드맵')} style={styles.seeButton} accessibilityRole="button">
                 <AppText size="small" weight="semibold" color={Colors.white}>
                   보러가기
                 </AppText>
               </Pressable>
             </View>
             <PlanBar steps={shortTermPlans[0].steps} />
-            <Pressable onPress={() => comingSoon('Best Case')} style={styles.more} accessibilityRole="button">
+            <Pressable hitSlop={8} onPress={() => comingSoon('Best Case')} style={styles.more} accessibilityRole="button">
               <AppText size="small" color={Colors.textMuted}>
                 더 알아보기
               </AppText>

@@ -23,7 +23,7 @@ export function Pill({
   style,
 }: PillProps) {
   return (
-    <Pressable
+    <Pressable hitSlop={8}
       onPress={onPress}
       disabled={!onPress}
       accessibilityRole="button"

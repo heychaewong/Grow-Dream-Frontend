@@ -235,7 +235,7 @@ function ActionButton({
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <Pressable hitSlop={8}
       onPress={onPress}
       accessibilityRole="button"
       style={({ pressed }) => [styles.action, { backgroundColor: color }, pressed && { opacity: 0.8 }]}>

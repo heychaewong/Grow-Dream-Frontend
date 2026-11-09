@@ -152,7 +152,7 @@ export default function PersonalApplyScreen() {
         <SectionTitle>자기 PR ⭐</SectionTitle>
         <Row>
           <AppText size="body">(선택) 사진 업로드</AppText>
-          <Pressable
+          <Pressable hitSlop={8}
             onPress={() => setPhotoAttached((a) => !a)}
             style={styles.fileButton}
             accessibilityRole="button">

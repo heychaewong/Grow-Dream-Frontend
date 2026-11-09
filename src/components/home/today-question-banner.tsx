@@ -105,7 +105,7 @@ export function TodayQuestionBanner({ number, highlight, rest, answer, onSubmitA
             </Pressable>
           </View>
         ) : (
-          <Pressable
+          <Pressable hitSlop={8}
             onPress={startEditing}
             accessibilityRole="button"
             style={({ pressed }) => [styles.answerLink, pressed && { opacity: 0.6 }]}>

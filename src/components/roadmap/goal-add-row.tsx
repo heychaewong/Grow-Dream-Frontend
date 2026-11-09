@@ -23,7 +23,7 @@ export function GoalAddRow({ goal, added, onAdd }: GoalAddRowProps) {
           {goal.tag ? ` · ${goal.tag}` : ''}
         </AppText>
       </View>
-      <Pressable
+      <Pressable hitSlop={8}
         onPress={onAdd}
         disabled={added}
         accessibilityRole="button"
