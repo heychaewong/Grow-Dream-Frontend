@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   intro: {
-    lineHeight: 20,
+    lineHeight: 23,
   },
   actions: {
     flexDirection: 'row',

@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   pageText: {
     textAlign: 'center',
-    lineHeight: 34,
+    lineHeight: 38,
   },
   source: {
     alignItems: 'center',

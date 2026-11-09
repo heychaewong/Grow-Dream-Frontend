@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   question: {
     textAlign: 'center',
-    lineHeight: 40,
+    lineHeight: 42,
   },
   banner: {
     alignItems: 'center',

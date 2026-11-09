@@ -19,7 +19,7 @@ export function BoardPreviewCard({ post, onPress }: BoardPreviewCardProps) {
       accessibilityLabel={`${post.board} 게시판으로 이동`}
       style={({ pressed }) => [styles.card, pressed && { opacity: 0.7 }]}>
       <View style={styles.titleRow}>
-        <AppText size="title" weight="bold">
+        <AppText size="bodyLarge" weight="bold">
           {post.board}
         </AppText>
         <Ionicons name="chevron-forward" size={22} color={Colors.textMuted} />
@@ -30,14 +30,14 @@ export function BoardPreviewCard({ post, onPress }: BoardPreviewCardProps) {
           <Ionicons name="person" size={26} color={Colors.white} />
         </View>
         <View style={styles.texts}>
-          <AppText size="bodyLarge" weight="semibold">
+          <AppText size="body" weight="semibold">
             {post.author}
           </AppText>
-          <AppText size="bodyLarge" numberOfLines={1}>
+          <AppText size="body" numberOfLines={1}>
             {post.content}
           </AppText>
         </View>
-        <AppText size="body" weight="medium" color={Colors.textSub} style={styles.time}>
+        <AppText size="small" weight="medium" color={Colors.textSub} style={styles.time}>
           {post.time}
         </AppText>
       </View>

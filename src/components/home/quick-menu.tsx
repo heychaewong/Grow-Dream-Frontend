@@ -26,7 +26,7 @@ export function QuickMenu({ items }: { items: QuickMenuItem[] }) {
           <View style={styles.iconBox}>
             <Ionicons name={item.icon} size={40} color={item.iconColor} />
           </View>
-          <AppText size="bodyLarge" weight="semibold" style={styles.label}>
+          <AppText size="body" weight="semibold" style={styles.label}>
             {item.label}
           </AppText>
         </Pressable>

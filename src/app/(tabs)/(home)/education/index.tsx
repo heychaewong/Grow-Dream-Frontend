@@ -258,8 +258,8 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
     paddingRight: Spacing.lg,
   },
-  quizPreview: { marginTop: Spacing.sm, lineHeight: 24 },
-  issuePreview: { marginTop: Spacing.sm, lineHeight: 22 },
+  quizPreview: { marginTop: Spacing.sm, lineHeight: 27 },
+  issuePreview: { marginTop: Spacing.sm, lineHeight: 23 },
   illustration: {
     width: 86,
     height: 86,

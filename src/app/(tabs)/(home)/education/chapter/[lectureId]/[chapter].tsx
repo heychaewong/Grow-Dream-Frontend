@@ -159,8 +159,8 @@ const styles = StyleSheet.create({
   },
   lessonLine: {
     textAlign: 'center',
-    fontSize: 19,
-    lineHeight: 26,
+    fontSize: 22,
+    lineHeight: 31,
   },
   quiz: {
     gap: Spacing.xxl,
