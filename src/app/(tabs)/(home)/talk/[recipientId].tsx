@@ -87,7 +87,7 @@ export default function SponsorChatScreen() {
 
           {sent.map((m) => (
             <View key={m.id} style={styles.myMessage}>
-              <AppText size="caption" weight="semibold" color={Colors.primary}>
+              <AppText size="small" weight="semibold" color={Colors.primary}>
                 나의 응원 메시지
               </AppText>
               <AppText size="body">{m.text}</AppText>

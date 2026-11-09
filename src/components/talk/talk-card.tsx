@@ -31,7 +31,7 @@ export function TalkCard({ avatar, title, time, badge, text, imageLabel, footer 
           </AppText>
         </View>
         <View style={styles.badge}>
-          <AppText size="caption" weight="bold">
+          <AppText size="small" weight="bold">
             {badge}
           </AppText>
         </View>
