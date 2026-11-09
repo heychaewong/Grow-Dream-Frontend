@@ -35,7 +35,7 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.community}>
-          <HighlightTitle style={styles.communityTitle}>커뮤니티</HighlightTitle>
+          <HighlightTitle size="headline" style={styles.communityTitle}>커뮤니티</HighlightTitle>
           {boardPreviews.map((post) => (
             <BoardPreviewCard key={post.id} post={post} onPress={() => comingSoon(post.board)} />
           ))}

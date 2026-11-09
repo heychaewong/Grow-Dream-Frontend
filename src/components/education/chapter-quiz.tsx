@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   blankText: {
     textAlign: 'center',
-    lineHeight: 30,
+    lineHeight: 34,
   },
   chip: {
     alignSelf: 'flex-end',

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
     gap: 8,
-    width: 90,
+    width: 96,
   },
   iconBox: {
     width: 72,

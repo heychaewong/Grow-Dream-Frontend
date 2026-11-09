@@ -14,7 +14,7 @@ export function HomeHeader() {
         <View style={styles.logo}>
           <MaterialCommunityIcons name="sprout" size={26} color={Colors.primary} />
         </View>
-        <AppText size="display" weight="extrabold" color={Colors.primary}>
+        <AppText size="headline" weight="extrabold" color={Colors.primary}>
           키워드림
         </AppText>
       </View>

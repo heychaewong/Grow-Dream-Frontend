@@ -76,9 +76,9 @@ function StatSlide() {
       </View>
       <View style={styles.statPanel}>
         <AppText size="caption" color={Colors.white} style={styles.panelText}>
-          코로나 이후,{'\n'}고립·은둔 청년{'\n'}의 숫자가
+          코로나 이후,{'\n'}고립·은둔 청년의{'\n'}숫자가
         </AppText>
-        <AppText size="bodyLarge" weight="bold" color={Colors.white} style={styles.center}>
+        <AppText size="body" weight="bold" color={Colors.white} style={styles.center}>
           “약 54만명”{'\n'}증가하며
         </AppText>
         <AppText size="caption" color={Colors.white} style={styles.panelText}>
@@ -163,14 +163,14 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '-25deg' }],
   },
   statPanel: {
-    width: 118,
+    width: 140,
     justifyContent: 'center',
-    gap: Spacing.md,
+    gap: Spacing.sm,
     paddingHorizontal: Spacing.md,
     backgroundColor: Colors.primaryDark,
   },
   panelText: {
-    lineHeight: 20,
+    lineHeight: 19,
   },
   messageSlide: {
     flexDirection: 'column',

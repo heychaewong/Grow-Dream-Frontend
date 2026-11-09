@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.yellow,
   },
   text: {
-    lineHeight: 24,
+    lineHeight: 27,
   },
   image: {
     height: 190,

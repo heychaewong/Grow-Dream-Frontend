@@ -75,14 +75,15 @@ export const FontSources = {
   [FontFamily.extrabold]: require('@/assets/fonts/Pretendard-ExtraBold.otf'),
 };
 
+/** 글자 크기 단계. 본문(body)은 17이에요. 자세한 쓰임은 DESIGN.md를 봐요. */
 export const FontSize = {
-  caption: 11,
-  small: 13,
-  body: 15,
-  bodyLarge: 17,
-  title: 20,
-  headline: 24,
-  display: 28,
+  caption: 13,
+  small: 15,
+  body: 17,
+  bodyLarge: 20,
+  title: 24,
+  headline: 28,
+  display: 32,
 } as const;
 
 export const Spacing = {
