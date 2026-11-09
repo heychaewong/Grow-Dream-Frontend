@@ -119,7 +119,7 @@ export default function ChapterScreen() {
             />
           ))}
           {!graded && !allAnswered && (
-            <AppText size="caption" color={Colors.textMuted} style={styles.center}>
+            <AppText size="small" color={Colors.textMuted} style={styles.center}>
               모든 문제에 답하면 제출할 수 있어요.
             </AppText>
           )}

@@ -40,7 +40,7 @@ export default function RankingScreen() {
             onPress={() => router.push('/education/daily-quiz')}
             style={({ pressed }) => [styles.dailyButton, pressed && { opacity: 0.8 }]}
             accessibilityRole="button">
-            <AppText size="caption" weight="semibold">
+            <AppText size="small" weight="semibold">
               데일리 퀴즈 풀기
             </AppText>
           </Pressable>

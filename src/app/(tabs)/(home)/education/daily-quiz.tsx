@@ -59,7 +59,7 @@ export default function DailyQuizScreen() {
         <AppText size="bodyLarge" style={styles.question}>
           {dailyQuiz.question}
         </AppText>
-        <AnswerInput value={answer} onChangeText={setAnswer} editable={!result} width={190} wrong={result?.correct === false} />
+        <AnswerInput value={answer} onChangeText={setAnswer} editable={!result} width={220} wrong={result?.correct === false} />
       </View>
 
       <ExplanationModal
