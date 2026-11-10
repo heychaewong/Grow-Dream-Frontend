@@ -1,6 +1,9 @@
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react';
 
 import { initialRoadmaps, type Goal, type Roadmap } from '@/data/roadmap';
+
+import { usePersistentState } from './persist';
+import * as logic from './roadmap-logic';
 
 type RoadmapStore = {
   roadmaps: Roadmap[];
@@ -12,34 +15,29 @@ type RoadmapStore = {
 
 const RoadmapStoreContext = createContext<RoadmapStore | null>(null);
 
-let nextId = 1;
-
+/** 진로 로드맵. 기기에 저장돼서 앱을 다시 열어도 남아요. */
 export function RoadmapStoreProvider({ children }: { children: ReactNode }) {
-  const [roadmaps, setRoadmaps] = useState(initialRoadmaps);
+  const [roadmaps, setRoadmaps] = usePersistentState<Roadmap[]>('roadmaps', initialRoadmaps);
 
-  const updateGoals = useCallback((roadmapId: string, fn: (goals: Goal[]) => Goal[]) => {
-    setRoadmaps((list) => list.map((r) => (r.id === roadmapId ? { ...r, goals: fn(r.goals) } : r)));
-  }, []);
+  const update = useCallback(
+    (roadmapId: string, fn: (goals: Goal[]) => Goal[]) => setRoadmaps((list) => logic.updateGoals(list, roadmapId, fn)),
+    [setRoadmaps],
+  );
 
   const addGoal = useCallback(
     (roadmapId: string, goal: Omit<Goal, 'id'>) =>
-      updateGoals(roadmapId, (goals) => {
-        const created: Goal = { ...goal, id: `new-${nextId++}` };
-        const last = goals[goals.length - 1];
-        return last?.type === 'goal' ? [...goals.slice(0, -1), created, last] : [...goals, created];
-      }),
-    [updateGoals],
+      update(roadmapId, (goals) => logic.insertGoal(goals, { ...goal, id: logic.newGoalId() })),
+    [update],
   );
 
   const removeGoal = useCallback(
-    (roadmapId: string, goalId: string) => updateGoals(roadmapId, (goals) => goals.filter((g) => g.id !== goalId)),
-    [updateGoals],
+    (roadmapId: string, goalId: string) => update(roadmapId, (goals) => logic.removeGoal(goals, goalId)),
+    [update],
   );
 
   const toggleGoalDone = useCallback(
-    (roadmapId: string, goalId: string) =>
-      updateGoals(roadmapId, (goals) => goals.map((g) => (g.id === goalId ? { ...g, done: !g.done } : g))),
-    [updateGoals],
+    (roadmapId: string, goalId: string) => update(roadmapId, (goals) => logic.toggleGoalDone(goals, goalId)),
+    [update],
   );
 
   const value = useMemo(

@@ -1,6 +1,8 @@
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react';
 
-type Sponsorship = { recipientId: string; amount: number };
+import * as logic from './funding-logic';
+import type { FundingState, Sponsorship } from './funding-logic';
+import { usePersistentState } from './persist';
 
 type FundingStore = {
   sponsorships: Sponsorship[];
@@ -16,55 +18,44 @@ type FundingStore = {
 
 const FundingStoreContext = createContext<FundingStore | null>(null);
 
-export function FundingStoreProvider({ children }: { children: ReactNode }) {
+const initialFundingState: FundingState = {
   // Figma 대화창처럼 류제홍 님은 이미 후원 중인 상태로 시작해요.
-  const [sponsorships, setSponsorships] = useState<Sponsorship[]>([{ recipientId: 'jehong', amount: 30000 }]);
-  const [appliedProgramIds, setApplied] = useState<string[]>([]);
-  const [bookmarkedProgramIds, setBookmarked] = useState<string[]>([]);
-  const [personalApplied, setPersonalApplied] = useState(false);
+  sponsorships: [{ recipientId: 'jehong', amount: 30000 }],
+  appliedProgramIds: [],
+  bookmarkedProgramIds: [],
+  personalApplied: false,
+};
 
-  const sponsor = useCallback((recipientId: string, amount: number) => {
-    setSponsorships((list) => [...list.filter((s) => s.recipientId !== recipientId), { recipientId, amount }]);
-  }, []);
+/** 후원·교육 신청·관심 공고. 기기에 저장돼서 앱을 다시 열어도 남아요. */
+export function FundingStoreProvider({ children }: { children: ReactNode }) {
+  const [state, setState] = usePersistentState<FundingState>('funding', initialFundingState);
 
-  const applyProgram = useCallback((id: string) => {
-    setApplied((list) => (list.includes(id) ? list : [...list, id]));
-  }, []);
+  const sponsor = useCallback(
+    (recipientId: string, amount: number) =>
+      setState((s) => ({ ...s, sponsorships: logic.sponsor(s.sponsorships, recipientId, amount) })),
+    [setState],
+  );
 
-  const toggleBookmark = useCallback((id: string) => {
-    setBookmarked((list) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]));
-  }, []);
+  const applyProgram = useCallback(
+    (id: string) => setState((s) => ({ ...s, appliedProgramIds: logic.addUnique(s.appliedProgramIds, id) })),
+    [setState],
+  );
 
-  const submitPersonalApplication = useCallback(() => setPersonalApplied(true), []);
+  const toggleBookmark = useCallback(
+    (id: string) => setState((s) => ({ ...s, bookmarkedProgramIds: logic.toggleItem(s.bookmarkedProgramIds, id) })),
+    [setState],
+  );
+
+  const submitPersonalApplication = useCallback(() => setState((s) => ({ ...s, personalApplied: true })), [setState]);
 
   const isSponsoring = useCallback(
-    (recipientId: string) => sponsorships.some((s) => s.recipientId === recipientId),
-    [sponsorships],
+    (recipientId: string) => state.sponsorships.some((s) => s.recipientId === recipientId),
+    [state.sponsorships],
   );
 
   const value = useMemo(
-    () => ({
-      sponsorships,
-      appliedProgramIds,
-      bookmarkedProgramIds,
-      personalApplied,
-      sponsor,
-      applyProgram,
-      toggleBookmark,
-      submitPersonalApplication,
-      isSponsoring,
-    }),
-    [
-      sponsorships,
-      appliedProgramIds,
-      bookmarkedProgramIds,
-      personalApplied,
-      sponsor,
-      applyProgram,
-      toggleBookmark,
-      submitPersonalApplication,
-      isSponsoring,
-    ],
+    () => ({ ...state, sponsor, applyProgram, toggleBookmark, submitPersonalApplication, isSponsoring }),
+    [state, sponsor, applyProgram, toggleBookmark, submitPersonalApplication, isSponsoring],
   );
 
   return <FundingStoreContext.Provider value={value}>{children}</FundingStoreContext.Provider>;
