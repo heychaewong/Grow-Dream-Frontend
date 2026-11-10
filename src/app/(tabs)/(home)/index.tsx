@@ -1,5 +1,4 @@
 import { router } from 'expo-router';
-import { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -10,6 +9,7 @@ import { TodayQuestionBanner } from '@/components/home/today-question-banner';
 import { HighlightTitle } from '@/components/ui/highlight-title';
 import { Colors, Spacing } from '@/constants/theme';
 import { boardPreviews, todayQuestion } from '@/data/home';
+import { useAppStore } from '@/store/app-store';
 
 const QUICK_MENU: QuickMenuItem[] = [
   { label: '경제교육', icon: 'cash-outline', iconColor: Colors.primary, href: '/education' },
@@ -21,7 +21,8 @@ const QUICK_MENU: QuickMenuItem[] = [
 const comingSoon = (title: string) => router.push({ pathname: '/coming-soon', params: { title } });
 
 export default function HomeScreen() {
-  const [todayAnswer, setTodayAnswer] = useState('');
+  // 답변은 기기에 저장돼서 앱을 다시 열어도 남아요.
+  const { todayAnswer, setTodayAnswer } = useAppStore();
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>

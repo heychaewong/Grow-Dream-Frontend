@@ -1,0 +1,29 @@
+# PR을 올리거나 고칠 때마다 타입체크·린트·테스트를 자동으로 돌려요.
+# 결과는 PR 화면에 ✔ / ✘ 로 표시돼요.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: 타입체크
+        run: npx tsc --noEmit
+
+      - name: 린트
+        run: npx expo lint
+
+      - name: 테스트
+        run: npm test -- --ci
