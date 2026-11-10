@@ -171,11 +171,6 @@ const styles = StyleSheet.create({
   band: {
     marginTop: Spacing.md,
     backgroundColor: Colors.talkBand,
-    elevation: 2,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    shadowOffset: { width: 0, height: 2 },
     zIndex: 1,
   },
   channels: {
@@ -196,11 +191,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'transparent',
     backgroundColor: Colors.white,
-    elevation: 2,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.12,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
   },
   tileActive: {
     borderColor: Colors.mustard,

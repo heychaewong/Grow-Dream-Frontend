@@ -145,11 +145,6 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.md,
     borderRadius: Radius.md,
     backgroundColor: Colors.primaryDark,
-    elevation: 3,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 3 },
   },
   modal: {
     padding: Spacing.xl,

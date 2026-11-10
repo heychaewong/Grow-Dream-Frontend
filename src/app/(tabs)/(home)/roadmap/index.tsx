@@ -155,11 +155,6 @@ const styles = StyleSheet.create({
     borderRadius: Radius.md,
     backgroundColor: Colors.white,
     overflow: 'hidden',
-    elevation: 4,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.12,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
   },
   menuItem: {
     paddingHorizontal: Spacing.md,
@@ -174,10 +169,5 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.sm,
     borderRadius: Radius.md,
     backgroundColor: Colors.beige,
-    elevation: 3,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 3 },
   },
 });

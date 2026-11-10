@@ -82,11 +82,6 @@ const styles = StyleSheet.create({
     padding: Spacing.xl,
     borderRadius: 24,
     backgroundColor: Colors.white,
-    elevation: 2,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 3 },
   },
   head: {
     flexDirection: 'row',
