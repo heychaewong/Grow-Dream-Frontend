@@ -30,9 +30,10 @@ jobs:
 
       - run: npm ci
 
-      # 타입체크와 린트를 통과해야만 배포해요.
+      # 타입체크·린트·테스트를 통과해야만 배포해요.
       - run: npx tsc --noEmit
       - run: npx expo lint
+      - run: npm test -- --ci
 
       # app.json의 experiments.baseUrl(/Grow-Dream-Frontend) 기준으로 화면마다 HTML을 만들어요.
       - run: npx expo export -p web
